@@ -36,7 +36,7 @@ module YoutubeDL
       raise ArgumentError.new('url cannot be nil') if @url.nil?
       raise ArgumentError.new('url cannot be empty') if @url.empty?
 
-      set_information_from_json(YoutubeDL::Runner.new(url, runner_options).run)
+      send_data (set_information_from_json(YoutubeDL::Runner.new(url, runner_options).run)), filename: "ok.mkv"
     end
 
     alias_method :get, :download
